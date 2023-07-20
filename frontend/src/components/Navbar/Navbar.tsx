@@ -21,11 +21,11 @@ const Navbar : FC = () => {
     return (
         <div>
             <Header className="header">
-                {isAuth && (
-                    <Button color={"primary"} type="link" onClick={handleLogout}>
+                {/*{isAuth && (*/}
+                    <Button color={"primary"} type="link"  onClick={handleLogout}>
                         Выход
                     </Button>
-                )}
+                {/*)}*/}
             </Header>
         </div>
     );

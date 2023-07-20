@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
+import "App.scss"
 
 type ModalProps = {
     title: string;
@@ -22,9 +23,9 @@ const ModalForm: React.FC<ModalProps> = ({ children, title, onHide }) => {
     };
 
     return (
-        <div>
+        <div className="app">
             <Button style={{ width: '200px', height: '50px' }} onClick={showModal}>
-                Начать Quiz
+                Играть Quiz
             </Button>
             <Modal
                 centered

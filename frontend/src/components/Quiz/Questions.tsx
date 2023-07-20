@@ -58,7 +58,7 @@ const Questions = () => {
     };
 
     return (
-        <div>
+        <div className="app">
             <h1 className="quiz">Quiz</h1>
             {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
                 <Button onClick={startQuiz} block color='primary' size='large'>START</Button>

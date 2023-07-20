@@ -16,11 +16,12 @@ body {
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  //display: flex;
+  //justify-content: space-between;
+  align-items: end;
+  //width: 100%;
   background-color: #fff;
+  color: blue;
 }
 
 .quiz {

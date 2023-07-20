@@ -10,7 +10,7 @@ import Layout from "components/Pages/Layout";
 export function App() {
 
     return (
-        <div className={"app"}>
+        <div>
             <Navbar/>
             <Routes>
                 <Route path="/" element={<Layout />}>
