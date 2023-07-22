@@ -1,15 +1,10 @@
-import { createStore, combineReducers } from 'redux';
+import { combineReducers} from "redux";
 import quizReducer from './reducers';
-import { QuizState } from 'redux/types';
+import userReducer from "userReducer/userReducer";
 
-export interface RootState {
-    quiz: QuizState;
-}
-
-const rootReducer = combineReducers<RootState>({
+export const rootReducer = combineReducers({
     quiz: quizReducer,
+    user: userReducer,
 });
 
-const store = createStore(rootReducer);
-
-export default store;
+export type RootState = ReturnType<typeof rootReducer>;
