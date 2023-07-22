@@ -9,7 +9,7 @@
 
 ### `npm install`
 
-перейти в папку backend: 
+Перейти в папку backend: 
 
 ### `cd backend`
 
