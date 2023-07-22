@@ -1,13 +1,27 @@
-const express = require("express");
-const cookieParser = require("cookie-parser");
+const express = require("express")
+const mongoose = require("mongoose")
+const config = require("config")
+const app = express()
+const PORT = config.get('serverPort')
+const authRouter = require("./routes/auth.routes")
+const corsMiddleware = require('./middleware/cors.middleware')
 
-const authRouter = require("./src/auth");
+app.use(corsMiddleware)
+app.use(express.json())
+app.use("/api/auth", authRouter);
 
-const app = express();
+const start = async () => {
+    try {
+        await mongoose.connect(config.get("dbUrl"));
 
-app.use(express.json());
-app.use(cookieParser());
-app.use(authRouter);
+        app.listen(PORT, () => {
+            console.log('Server started on port ', PORT)
+        })
+    } catch (e) {
+        console.log(e)
+    }
+}
 
-const port = 3001;
-app.listen(port, () => console.log(`Server listens port: ${port}`));
+start()
+
+
