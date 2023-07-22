@@ -1,34 +1,10 @@
+import {UserActionTypes, CurrentUserState, UserState, UserAction} from "userReducer/userTypes";
+import {SET_USER, LOGOUT} from "userReducer/utils";
+
 const defaultState: UserState = {
     currentUser: {},
     isAuth: false
 }
-
-export type CurrentUserState = {
-    id: string;
-    email: string;
-};
-
-export interface UserState {
-    currentUser: CurrentUserState | object;
-    isAuth: boolean;
-}
-
-export enum UserActionTypes {
-    SET_USER = 'SET_USER',
-    LOGOUT = 'LOGOUT',
-}
-
-export interface SetUserAction {
-    type: UserActionTypes.SET_USER;
-    payload?: object;
-}
-
-interface LogoutAction {
-    type: UserActionTypes.LOGOUT;
-}
-
-export type UserAction = SetUserAction | LogoutAction;
-
 
 export default function userReducer(state = defaultState, action: UserAction) {
     switch (action.type) {
@@ -42,8 +18,7 @@ export default function userReducer(state = defaultState, action: UserAction) {
         localStorage.removeItem('token')
         return {
             ...state,
-            currentUser: {},
-            isAuth: false
+            ...defaultState,
         }
     default:
         return state
@@ -52,8 +27,8 @@ export default function userReducer(state = defaultState, action: UserAction) {
 
 
 export const setUser = (user: CurrentUserState) => {
-    return {type: 'SET_USER', payload: user}
+    return {type: SET_USER, payload: user}
 }
 export const logout = () => {
-    return {type: 'LOGOUT'}
+    return {type: LOGOUT}
 }

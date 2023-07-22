@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ModalForm from "components/Modal/ModalForm";
-import Login from "components/authorization/Login";
+import Login from "components/Authorization/Login";
 import Registration from "components/Registration/Registration";
 
 export function Home () {

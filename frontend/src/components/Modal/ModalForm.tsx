@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
 import "App.scss"
-
-type ModalProps = {
-    title: string;
-    onHide?: () => void;
-};
+import {ModalProps} from "components/Modal/types";
 
 const ModalForm: React.FC<ModalProps> = ({ children, title, onHide }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,8 +20,8 @@ const ModalForm: React.FC<ModalProps> = ({ children, title, onHide }) => {
 
     return (
         <div className="app">
-            <Button style={{ width: '200px', height: '50px' }} onClick={showModal}>
-                Играть Quiz
+            <Button style={{ width: '200px', height: '50px', marginTop: '50px' }} onClick={showModal}>
+                Играть Квиз
             </Button>
             <Modal
                 centered

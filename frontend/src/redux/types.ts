@@ -1,3 +1,17 @@
+export type Question = {
+    category: string;
+    correct_answer: string;
+    difficulty: string;
+    incorrect_answers: string[];
+    question: string;
+    type: string;
+};
+
+export type QuestionState = Question & {answers: string[] };
+
+export enum Difficulty {
+    EASY = "easy",
+}
 
 export interface Props {
     question: string;
@@ -15,9 +29,3 @@ export interface AnswerObject {
     correctAnswer: string;
 }
 
-export interface QuizState {
-    currentQuestion: number;
-    answers: { questionIndex: number; answerIndex: number }[];
-    score: number;
-    isFinished: boolean;
-}

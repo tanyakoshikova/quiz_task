@@ -4,13 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2c8a23d-601e-424d-a6fd-691f4c22ecae" name="Changes" comment="Комментарий к запуску">
+    <list default="true" id="c2c8a23d-601e-424d-a6fd-691f4c22ecae" name="Changes" comment="full stack quiz">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/AppRoutes/AppRoutes.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Authorization/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Modal/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Quiz/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Registration/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Timer/Timer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Timer/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Timer/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/redux/reducersTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/userReducer/userTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/userReducer/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/utils/utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Modal/ModalForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Modal/ModalForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar/Navbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Pages/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Pages/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Pages/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Pages/NoPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Pages/NoPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Quiz/QuestionGard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Quiz/QuestionGard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Quiz/Questions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Quiz/Questions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Registration/Registration.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Registration/Registration.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/authorization/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Authorization/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/actionCreator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/actionCreator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/reducers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/reducers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/redux/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/redux/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/userReducer/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/userReducer/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/userReducer/userReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/userReducer/userReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/input/input.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +76,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\React\quiz_task\frontend\src\utils" />
       <recent name="C:\React\quiz_task\frontend\src\components\Modal" />
       <recent name="C:\React\quiz_task\frontend\src\components\pages" />
       <recent name="C:\React\quiz_task\backend\middleware" />
       <recent name="C:\React\quiz_task\frontend\src\components\Quiz" />
-      <recent name="C:\React\quiz_task\frontend\src\userReducer" />
     </key>
   </component>
   <component name="RunManager">
@@ -91,7 +116,7 @@
       <workItem from="1689584959925" duration="3360000" />
       <workItem from="1689588800174" duration="5810000" />
       <workItem from="1689594686018" duration="50256000" />
-      <workItem from="1689760050943" duration="43736000" />
+      <workItem from="1689760050943" duration="88402000" />
     </task>
     <task id="LOCAL-00001" summary="Тестовое &quot;Квиз&quot;">
       <created>1689403340338</created>
@@ -184,7 +209,28 @@
       <option name="project" value="LOCAL" />
       <updated>1689855281632</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="full stack quiz">
+      <created>1689856416447</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689856416447</updated>
+    </task>
+    <task id="LOCAL-00015" summary="full stack quiz">
+      <created>1689856476097</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689856476097</updated>
+    </task>
+    <task id="LOCAL-00016" summary="full stack quiz">
+      <created>1689856615521</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689856615521</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,8 +250,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Тестовое &quot;Квиз&quot;" />
     <MESSAGE value="Комментарий к запуску приложения" />
-    <MESSAGE value="full stack quiz" />
     <MESSAGE value="Комментарий к запуску" />
-    <option name="LAST_COMMIT_MESSAGE" value="Комментарий к запуску" />
+    <MESSAGE value="full stack quiz" />
+    <option name="LAST_COMMIT_MESSAGE" value="full stack quiz" />
   </component>
 </project>

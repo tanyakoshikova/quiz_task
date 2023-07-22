@@ -2,11 +2,14 @@ import React, {MouseEvent, useState} from 'react';
 import {Button} from 'antd';
 import {LoadingOutlined} from '@ant-design/icons';
 import QuestionGard from 'components/Quiz/QuestionGard';
-import {Difficulty, fetchQuizQuestions, QuestionState} from 'redux/actionCreator';
+import {Difficulty, QuestionState} from "redux/types";
+import {fetchQuizQuestions} from "redux/actionCreator";
 import {AnswerObject} from 'redux/types';
 import '../../App.scss';
+import { Pagination } from 'antd';
+import {Footer} from "antd/es/layout/layout";
+import {TOTAL_QUESTIONS} from "components/Quiz/utils";
 
-const TOTAL_QUESTIONS = 10;
 
 const Questions = () => {
 
@@ -17,6 +20,7 @@ const Questions = () => {
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(true);
 
+
     const startQuiz = async () => {
         setLoading(true);
         setGameOver(false);
@@ -24,7 +28,6 @@ const Questions = () => {
             TOTAL_QUESTIONS,
             Difficulty.EASY
         );
-        console.log(newQuestions)
         setQuestions(newQuestions);
         setScore(0);
         setUserAnswers([]);
@@ -57,33 +60,41 @@ const Questions = () => {
         }
     };
 
+
+    const handleChangePage = (page: number) => {
+        setNumber(page);
+    };
+
+
     return (
-        <div className="app">
-            <h1 className="quiz">Quiz</h1>
-            {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-                <Button onClick={startQuiz} block color='primary' size='large'>START</Button>
-            ) : null }
-            {loading &&
-                <p><LoadingOutlined rotate={180} size={32}/></p>}
-            {!loading && !gameOver && (
-                <QuestionGard
-                    questionNr={number + 1}
-                    totalQuestions={TOTAL_QUESTIONS}
-                    question={questions[number].question}
-                    answers={questions[number].answers}
-                    userAnswer={userAnswers ? userAnswers[number] : undefined}
-                    callback={checkAnswer}
-                />
-            ) }
-            {!gameOver &&
-            !loading &&
-            userAnswers.length === number + 1 &&
-            number !== TOTAL_QUESTIONS - 1
-                ? ( <Button className="next" onClick={nextQuestion} color='primary' size='large'>Load more</Button>
+        <div>
+            <div className="app">
+                <h1 className="quiz">Quiz</h1>
+                {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+                    <Button onClick={startQuiz} block color='primary' size='large'>START</Button>
                 ) : null}
-            {userAnswers.length === TOTAL_QUESTIONS &&
-                <Button>Сorrect answers: {score}</Button>
-            }
+                {loading &&
+                    <p><LoadingOutlined rotate={180} size={32}/></p>}
+                {!loading && !gameOver && (
+                    <QuestionGard
+                        questionNr={number + 1}
+                        totalQuestions={TOTAL_QUESTIONS}
+                        question={questions[number].question}
+                        answers={questions[number].answers}
+                        userAnswer={userAnswers ? userAnswers[number] : undefined}
+                        callback={checkAnswer}
+                    />
+                )}
+                <Pagination className="pagination"
+                    total={TOTAL_QUESTIONS}
+                    current={number}
+                    onChange={handleChangePage}
+                    pageSize={score}
+                />
+            </div>
+            <Footer style={{textAlign: 'center'}}>
+                <Button size='large'>Сorrect answers: {score} and incorrect answers: {TOTAL_QUESTIONS - score}</Button>
+            </Footer>
         </div>
     );
 };
