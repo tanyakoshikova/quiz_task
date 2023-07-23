@@ -1,0 +1,5 @@
+export const NEXT_QUESTION = "NEXT_QUESTION";
+export const SELECT_ANSWER = "SELECT_ANSWER";
+export const CALCULATE_SCORE = "CALCULATE_SCORE";
+export const FINISH_QUIZ = "FINISH_QUIZ";
+export const RESULT_SHOW = "RESULT_SHOW";
