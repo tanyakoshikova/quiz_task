@@ -9,7 +9,7 @@ export const initialState: QuizState = {
     score: 0,
     isFinished: false,
 };
-export const showResultAC = () => ({type: typeof showResultAC})
+export const finish = () => ({type: typeof finish})
 
 const quizReducer = (state = initialState, action: QuizAction): QuizState => {
     switch (action.type) {

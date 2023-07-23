@@ -1,4 +1,4 @@
-import {UserActionTypes, CurrentUserState, UserState, UserAction} from "userReducer/userTypes";
+import { CurrentUserState, UserState, UserAction} from "userReducer/userTypes";
 import {SET_USER, LOGOUT} from "userReducer/utils";
 
 const defaultState: UserState = {
@@ -8,13 +8,13 @@ const defaultState: UserState = {
 
 export default function userReducer(state = defaultState, action: UserAction) {
     switch (action.type) {
-    case UserActionTypes.SET_USER:
+    case SET_USER:
         return {
             ...state,
             currentUser: action.payload,
             isAuth: true
         }
-    case UserActionTypes.LOGOUT:
+    case LOGOUT:
         localStorage.removeItem('token')
         return {
             ...state,

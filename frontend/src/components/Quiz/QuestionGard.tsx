@@ -2,7 +2,7 @@ import React from 'react';
 import {Props} from 'redux/types';
 import {Timer} from "components/Timer/Timer";
 import {useAppDispatch} from "userReducer";
-import {showResultAC} from "redux/reducers";
+import {finish} from "redux/reducers";
 
 
 const QuestionGard: React.FC<Props> = ( {question, answers, callback, userAnswer, questionNr, totalQuestions} ) => {
@@ -10,7 +10,7 @@ const QuestionGard: React.FC<Props> = ( {question, answers, callback, userAnswer
 
     const dispatch = useAppDispatch();
     const showResult = () => {
-        dispatch(showResultAC());
+        dispatch(finish());
     };
 
     return (
@@ -18,7 +18,7 @@ const QuestionGard: React.FC<Props> = ( {question, answers, callback, userAnswer
             <p className={"number"}>
                 Question: {questionNr} / {totalQuestions}
             </p>
-            <Timer countMinutes={0.2} onFinish={showResult}/>
+            <Timer countMinutes={10} onFinish={showResult}/>
             <p dangerouslySetInnerHTML={{ __html: question }}/>
             <div>
                 {answers.map((answer) => (

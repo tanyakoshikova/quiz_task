@@ -1,3 +1,5 @@
+import {SET_USER, LOGOUT} from "userReducer/utils";
+
 export type CurrentUserState = {
     id: string;
     email: string;
@@ -8,18 +10,13 @@ export interface UserState {
     isAuth: boolean;
 }
 
-export enum UserActionTypes {
-    SET_USER = 'SET_USER',
-    LOGOUT = 'LOGOUT',
-}
-
 interface SetUserAction {
-    type: UserActionTypes.SET_USER;
+    type: typeof SET_USER;
     payload?: object;
 }
 
 interface LogoutAction {
-    type: UserActionTypes.LOGOUT;
+    type: typeof LOGOUT;
 }
 
 export type UserAction = SetUserAction | LogoutAction;
