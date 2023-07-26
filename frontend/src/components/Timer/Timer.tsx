@@ -1,11 +1,10 @@
 import React from "react";
 import {Col, Row} from "antd";
-import type { CountdownProps } from "antd";
-import { useMemo} from "react";
+import {useMemo} from "react";
 import {TimerProps} from "components/Timer/types";
 import {Countdown} from "components/Timer/utils";
 
-export const Timer = ({ countMinutes, onFinish: handleFinish }: TimerProps) => {
+export const Timer = ({countMinutes, onFinish}: TimerProps) => {
 
     const TotalMinutes = 1000 * 60 * countMinutes;
 
@@ -13,10 +12,6 @@ export const Timer = ({ countMinutes, onFinish: handleFinish }: TimerProps) => {
         () => Date.now() + TotalMinutes,
         [countMinutes]
     );
-
-    const onFinish: CountdownProps["onFinish"] = () => {
-        handleFinish();
-    };
 
     return (
         <Row>
