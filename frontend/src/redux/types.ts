@@ -20,6 +20,7 @@ export interface Props {
     userAnswer: AnswerObject | undefined;
     questionNr: number;
     totalQuestions: number;
+    onFinish: () => void;
 }
 
 export interface AnswerObject {

@@ -1,12 +1,12 @@
 import React, {MouseEvent, useState} from 'react';
-import {Button} from 'antd';
+import {Button, CountdownProps} from 'antd';
 import {LoadingOutlined} from '@ant-design/icons';
 import QuestionGard from 'components/Quiz/QuestionGard';
 import {Difficulty, QuestionState} from "redux/types";
 import {fetchQuizQuestions} from "redux/actionCreator";
 import {AnswerObject} from 'redux/types';
 import '../../App.scss';
-import { Pagination } from 'antd';
+import {Pagination} from 'antd';
 import {Footer} from "antd/es/layout/layout";
 import {TOTAL_QUESTIONS} from "components/Quiz/utils";
 
@@ -19,7 +19,6 @@ const Questions = () => {
     const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(true);
-
 
     const startQuiz = async () => {
         setLoading(true);
@@ -50,19 +49,12 @@ const Questions = () => {
         }
     };
 
-    const nextQuestion = () => {
-        const nextQuestion = number + 1;
-
-        if (nextQuestion === TOTAL_QUESTIONS) {
-            setGameOver(true);
-        } else {
-            setNumber(nextQuestion);
-        }
+    const handleChangePage = (page: number) => {
+        setNumber(page - 1);
     };
 
-
-    const handleChangePage = (page: number) => {
-        setNumber(page);
+    const onFinish: CountdownProps['onFinish'] = async () => {
+        setGameOver(true);
     };
 
 
@@ -83,16 +75,18 @@ const Questions = () => {
                         answers={questions[number].answers}
                         userAnswer={userAnswers ? userAnswers[number] : undefined}
                         callback={checkAnswer}
+                        onFinish={onFinish}
                     />
                 )}
                 <Pagination className="pagination"
-                    total={TOTAL_QUESTIONS}
-                    current={number}
+                    total={questions.length}
+                    defaultCurrent={score}
                     onChange={handleChangePage}
-                    pageSize={score}
+                    pageSize={1}
                 />
             </div>
             <Footer style={{textAlign: 'center'}}>
+                {/*<Button onClick={onFinish}>Конец игры</Button>*/}
                 <Button size='large'>Сorrect answers: {score} and incorrect answers: {TOTAL_QUESTIONS - score}</Button>
             </Footer>
         </div>
@@ -100,3 +94,6 @@ const Questions = () => {
 };
 
 export default Questions;
+
+
+

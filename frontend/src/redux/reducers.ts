@@ -7,7 +7,7 @@ export const initialState: QuizState = {
     currentQuestion: 0,
     answers: [],
     score: 0,
-    isFinished: false,
+    isFinished: true,
 };
 export const finish = () => ({type: typeof finish})
 
