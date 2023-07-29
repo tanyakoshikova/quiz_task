@@ -1,3 +1,5 @@
+import {MouseEvent} from "react";
+
 export type Question = {
     category: string;
     correct_answer: string;
@@ -16,7 +18,7 @@ export enum Difficulty {
 export interface Props {
     question: string;
     answers: string[];
-    callback: any;
+    callback: (e:MouseEvent) => void;
     userAnswer: AnswerObject | undefined;
     questionNr: number;
     totalQuestions: number;
