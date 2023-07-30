@@ -7,7 +7,7 @@ const QuestionGard: React.FC<Props> = ( {question, answers, callback, userAnswer
         <div>
             <p dangerouslySetInnerHTML={{ __html: question }}/>
             <div>
-                {answers.map((answer: any) => (
+                {answers.map((answer: string) => (
                     <div key={answer} className="answer">
                         <input type="checkbox" id="key" onClick={callback} disabled={!!userAnswer} value={answer} className="checkbox" />
                         <span dangerouslySetInnerHTML={{ __html: answer }}/>
