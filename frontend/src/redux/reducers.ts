@@ -11,7 +11,7 @@ export const initialState: QuizState = {
 };
 export const finish = () => ({type: typeof finish})
 
-const quizReducer = (state = initialState, action: QuizAction): QuizState => {
+export const quizReducer = (state = initialState, action: QuizAction): QuizState => {
     switch (action.type) {
     case RESULT_SHOW:
         return {

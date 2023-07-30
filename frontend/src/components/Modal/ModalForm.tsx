@@ -21,7 +21,7 @@ const ModalForm: React.FC<ModalProps> = ({ children, title, onHide }) => {
     return (
         <div className="app">
             <Button style={{ width: '200px', height: '50px', marginTop: '50px' }} onClick={showModal}>
-                Играть Квиз
+                Играть квиз
             </Button>
             <Modal
                 centered

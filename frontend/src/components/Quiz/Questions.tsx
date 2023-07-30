@@ -9,13 +9,14 @@ import '../../App.scss';
 import {Pagination} from 'antd';
 import {Footer} from "antd/es/layout/layout";
 import {TOTAL_QUESTIONS} from "components/Quiz/utils";
-
+import {useNavigate} from "react-router-dom";
+import {Timer} from "components/Timer/Timer";
 
 const Questions = () => {
 
     const [loading, setLoading] = useState(false);
     const [questions, setQuestions] = useState<QuestionState[]>([]);
-    const [number, setNumber] = useState(0);
+    const [number, setNumber] = useState(1);
     const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(true);
@@ -40,6 +41,7 @@ const Questions = () => {
             const correct = questions[number].correct_answer === answer;
             if (correct) setScore(prev => prev + 1);
             const answerOdject = {
+
                 question: questions[number].question,
                 answer: answer,
                 correct: correct,
@@ -53,41 +55,44 @@ const Questions = () => {
         setNumber(page - 1);
     };
 
+    const navigate = useNavigate();
+
     const onFinish: CountdownProps['onFinish'] = async () => {
         setGameOver(true);
+        navigate('/result');
     };
 
 
     return (
         <div>
             <div className="app">
-                <h1 className="quiz">Quiz</h1>
                 {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-                    <Button onClick={startQuiz} block color='primary' size='large'>START</Button>
+                    <Button onClick={startQuiz} block color='primary' size='large' style={{marginTop: '70px'}}>START</Button>
                 ) : null}
                 {loading &&
                     <p><LoadingOutlined rotate={180} size={32}/></p>}
-                {!loading && !gameOver && (
+                {!loading && !gameOver && ( <Timer countMinutes={10} onFinish={onFinish} /> )}
+                {questions.slice(number * 5, number * 5 + 5).map((questions, index) => (
                     <QuestionGard
-                        questionNr={number + 1}
+                        questionNr={number * 5 + index + 1}
+                        key={TOTAL_QUESTIONS}
                         totalQuestions={TOTAL_QUESTIONS}
-                        question={questions[number].question}
-                        answers={questions[number].answers}
-                        userAnswer={userAnswers ? userAnswers[number] : undefined}
+                        question={questions.question}
+                        answers={questions.answers }
+                        userAnswer={userAnswers ? userAnswers[number * 5 + index] : undefined}
                         callback={checkAnswer}
                         onFinish={onFinish}
                     />
-                )}
+                ))}
                 <Pagination className="pagination"
-                    total={questions.length}
-                    defaultCurrent={score}
+                    total={questions.length / 5}
+                    defaultCurrent={number}
                     onChange={handleChangePage}
                     pageSize={1}
                 />
             </div>
-            <Footer style={{textAlign: 'center'}}>
-                {/*<Button onClick={onFinish}>Конец игры</Button>*/}
-                <Button size='large'>Сorrect answers: {score} and incorrect answers: {TOTAL_QUESTIONS - score}</Button>
+            <Footer style={{textAlign: 'center'}} className="footer">
+                <Button size='large' onClick={onFinish}>Сorrect answers: {score} and incorrect answers: {TOTAL_QUESTIONS - score}</Button>
             </Footer>
         </div>
     );

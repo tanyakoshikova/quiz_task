@@ -1,15 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Header } from 'antd/es/layout/layout';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { Button } from 'antd';
-import { useTypedSelector} from "utils/utils";
+import {Button, CountdownProps} from 'antd';
 import { useDispatch } from 'react-redux';
 import { logout} from "userReducer/userReducer";
 import "../../App.scss"
 
 const Layout: React.FC = () => {
-
-    const { isAuth } = useTypedSelector((state) => state.user);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -22,7 +19,8 @@ const Layout: React.FC = () => {
     return (
         <div>
             <Header className="header">
-                <Button style={{ width: '100px', height: '30px' }}  onClick={handleLogout}>
+                <h1 className="quiz">Quiz</h1>
+                <Button style={{ width: '90px', height: '30px' }}  onClick={handleLogout}>
                     Выход
                 </Button>
             </Header>
